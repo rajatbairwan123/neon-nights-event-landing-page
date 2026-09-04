@@ -25,8 +25,11 @@
     silently assuming a specific city or timezone.
 */
 
-const eventDate = new Date(2026, 8, 10, 19, 0, 0);
+// Actual date
+const eventDate = new Date(2026, 2, 14, 19, 0, 0);
 
+// For example future date
+// const eventDate = new Date(2026, 8, 10, 19, 0, 0);
 const countdown = document.getElementById("countdown");
 const countdownMessage = document.getElementById("countdownMessage");
 
