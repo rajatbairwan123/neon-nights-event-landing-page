@@ -1,0 +1,834 @@
+/* =========================================================
+   NEON NIGHTS
+   GLOBAL STYLES
+========================================================= */
+
+:root {
+    --primary-color: #1479ff;
+    --primary-dark: #005ce6;
+    --primary-light: #5aa2ff;
+
+    --bg-color: #ffffff;
+    --surface-color: #f6f8fc;
+    --text-color: #111827;
+    --text-muted: #667085;
+    --border-color: #e4e7ec;
+
+    --header-bg: rgba(255, 255, 255, 0.92);
+    --footer-bg: #0b1020;
+
+    --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.16);
+
+    --container-width: 1180px;
+
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 24px;
+
+    --transition: 0.25s ease;
+}
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark-mode {
+    --bg-color: #0b1020;
+    --surface-color: #111827;
+    --text-color: #f8fafc;
+    --text-muted: #a8b0c0;
+    --border-color: #283244;
+
+    --header-bg: rgba(11, 16, 32, 0.92);
+    --footer-bg: #060914;
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition:
+        background-color var(--transition),
+        color var(--transition);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* =========================================================
+   REUSABLE CONTAINER
+========================================================= */
+
+.container {
+    width: min(100% - 40px, var(--container-width));
+    margin-inline: auto;
+}
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background-color: var(--header-bg);
+
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid var(--border-color);
+
+    transition:
+        background-color var(--transition),
+        border-color var(--transition);
+}
+
+.header-container {
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--text-color);
+
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+/* Navigation */
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    margin-left: auto;
+    margin-right: 24px;
+}
+
+.main-nav a {
+    position: relative;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    color: var(--text-muted);
+
+    transition: color var(--transition);
+}
+
+.main-nav a:hover {
+    color: var(--primary-color);
+}
+
+.main-nav a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+
+    width: 0;
+    height: 2px;
+
+    background-color: var(--primary-color);
+
+    transition: width var(--transition);
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+/* Theme Toggle */
+
+.theme-toggle {
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+
+    background-color: var(--surface-color);
+
+    display: grid;
+    place-items: center;
+
+    transition:
+        transform var(--transition),
+        background-color var(--transition),
+        border-color var(--transition);
+}
+
+.theme-toggle:hover {
+    transform: rotate(12deg);
+}
+
+.theme-icon {
+    font-size: 1.1rem;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    position: relative;
+
+    min-height: calc(100vh - 72px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    color: #ffffff;
+
+    background-image: url("../assets/hero.jpg");
+    background-size: cover;
+    background-position: center;
+
+    overflow: hidden;
+}
+
+/* Blue overlay */
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        135deg,
+        rgba(0, 45, 120, 0.9),
+        rgba(0, 110, 255, 0.65),
+        rgba(5, 10, 30, 0.82)
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+
+    max-width: 850px;
+
+    padding-block: 80px;
+}
+
+/* Hero eyebrow */
+
+.hero-eyebrow {
+    margin-bottom: 14px;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    color: #dceaff;
+}
+
+/* Main heading */
+
+.hero h1 {
+    font-size: clamp(3rem, 9vw, 7rem);
+    line-height: 0.95;
+
+    font-weight: 900;
+    letter-spacing: -3px;
+
+    margin-bottom: 24px;
+
+    text-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Hero description */
+
+.hero-description {
+    max-width: 620px;
+
+    margin-inline: auto;
+    margin-bottom: 40px;
+
+    font-size: clamp(1rem, 2vw, 1.25rem);
+
+    color: rgba(255, 255, 255, 0.88);
+}
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(80px, 1fr));
+
+    gap: 14px;
+
+    max-width: 620px;
+
+    margin-inline: auto;
+    margin-bottom: 32px;
+}
+
+.countdown-item {
+    padding: 18px 12px;
+
+    background-color: rgba(255, 255, 255, 0.13);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: var(--radius-md);
+
+    backdrop-filter: blur(8px);
+}
+
+.countdown-item span {
+    display: block;
+
+    font-size: clamp(1.7rem, 4vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1;
+}
+
+.countdown-item small {
+    display: block;
+
+    margin-top: 8px;
+
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.countdown-message {
+    min-height: 24px;
+
+    margin-bottom: 20px;
+
+    font-weight: 600;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn {
+    min-height: 50px;
+
+    padding: 0 28px;
+
+    border: none;
+    border-radius: var(--radius-sm);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        background-color var(--transition);
+}
+
+.btn-primary {
+    color: #ffffff;
+
+    background-color: var(--primary-color);
+
+    box-shadow: 0 12px 30px rgba(20, 121, 255, 0.35);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 16px 35px rgba(20, 121, 255, 0.45);
+}
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.features {
+    padding-block: 90px;
+
+    background-color: var(--surface-color);
+
+    transition: background-color var(--transition);
+}
+
+.features-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 24px;
+}
+
+.feature-card {
+    padding: 38px 28px;
+
+    text-align: center;
+
+    background-color: var(--bg-color);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-md);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        background-color var(--transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow: var(--shadow-lg);
+}
+
+.feature-icon {
+    width: 64px;
+    height: 64px;
+
+    margin-inline: auto;
+    margin-bottom: 20px;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 2rem;
+
+    background-color: rgba(20, 121, 255, 0.1);
+
+    border-radius: 50%;
+}
+
+.feature-card h2 {
+    margin-bottom: 10px;
+
+    font-size: 1.3rem;
+}
+
+.feature-card p {
+    color: var(--text-muted);
+
+    font-size: 0.95rem;
+}
+
+/* =========================================================
+   SECTION HEADINGS
+========================================================= */
+
+.section-heading {
+    margin-bottom: 42px;
+    text-align: center;
+}
+
+.section-label {
+    margin-bottom: 8px;
+
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    color: var(--primary-color);
+}
+
+.section-heading h2,
+.signup h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+
+    line-height: 1.1;
+
+    letter-spacing: -1px;
+}
+
+/* =========================================================
+   SCHEDULE
+========================================================= */
+
+.schedule {
+    padding-block: 100px;
+}
+
+.schedule-table-wrapper {
+    overflow-x: auto;
+
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+}
+
+.schedule-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 500px;
+}
+
+.schedule-table th,
+.schedule-table td {
+    padding: 22px 28px;
+
+    text-align: left;
+
+    border-bottom: 1px solid var(--border-color);
+}
+
+.schedule-table th {
+    font-size: 0.75rem;
+
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+
+    color: var(--text-muted);
+
+    background-color: var(--surface-color);
+}
+
+.schedule-table td:first-child {
+    width: 30%;
+
+    font-weight: 800;
+
+    color: var(--primary-color);
+}
+
+.schedule-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* =========================================================
+   SIGNUP
+========================================================= */
+
+.signup {
+    padding-block: 90px;
+
+    background-color: var(--surface-color);
+
+    transition: background-color var(--transition);
+}
+
+.signup-container {
+    text-align: center;
+
+    max-width: 850px;
+}
+
+.signup-content {
+    margin-bottom: 30px;
+}
+
+.signup-content h2 {
+    margin-bottom: 14px;
+}
+
+.signup-content > p:last-child {
+    color: var(--text-muted);
+}
+
+.signup-form {
+    display: flex;
+
+    max-width: 680px;
+
+    margin-inline: auto;
+
+    gap: 12px;
+}
+
+.signup-form input {
+    flex: 1;
+
+    min-height: 52px;
+
+    padding: 0 18px;
+
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+
+    outline: none;
+
+    background-color: var(--bg-color);
+
+    color: var(--text-color);
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+.signup-form input:focus {
+    border-color: var(--primary-color);
+
+    box-shadow: 0 0 0 4px rgba(20, 121, 255, 0.12);
+}
+
+.form-message {
+    min-height: 24px;
+
+    margin-top: 14px;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer {
+    padding-block: 45px;
+
+    background-color: var(--footer-bg);
+
+    color: #ffffff;
+}
+
+.footer-container {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 24px;
+
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    color: #ffffff;
+}
+
+.social-links {
+    display: flex;
+
+    gap: 20px;
+}
+
+.social-links a {
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 0.9rem;
+
+    transition: color var(--transition);
+}
+
+.social-links a:hover {
+    color: #ffffff;
+}
+
+.site-footer p {
+    color: rgba(255, 255, 255, 0.55);
+
+    font-size: 0.85rem;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+/* Tablets */
+
+@media (max-width: 768px) {
+    .features {
+        padding-block: 70px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .schedule {
+        padding-block: 75px;
+    }
+
+    .signup {
+        padding-block: 70px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+
+        text-align: center;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 576px) {
+    .container {
+        width: min(100% - 28px, var(--container-width));
+    }
+
+    .header-container {
+        min-height: 64px;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    .main-nav {
+        gap: 14px;
+
+        margin-right: 14px;
+    }
+
+    .main-nav a {
+        font-size: 0.85rem;
+    }
+
+    .theme-toggle {
+        width: 38px;
+        height: 38px;
+    }
+
+    .hero {
+        min-height: calc(100svh - 64px);
+
+        background-position: center;
+    }
+
+    .hero-content {
+        padding-block: 60px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .hero-description {
+        margin-bottom: 30px;
+    }
+
+    .countdown {
+        grid-template-columns: repeat(2, 1fr);
+
+        max-width: 360px;
+    }
+
+    .countdown-item {
+        padding: 16px 10px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .schedule-table th,
+    .schedule-table td {
+        padding: 18px 20px;
+    }
+
+    .signup-form {
+        flex-direction: column;
+    }
+
+    .site-footer {
+        padding-block: 38px;
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+
+        animation-duration: 0.01ms !important;
+    }
+}
+
+.countdown-ended {
+    grid-column: 1 / -1;
+
+    padding: 22px;
+
+    font-size: 1.05rem;
+    font-weight: 700;
+
+    background-color: rgba(255, 255, 255, 0.13);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: var(--radius-md);
+
+    backdrop-filter: blur(8px);
+}

@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        <!-- Required for responsive layouts -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <meta
+            name="description"
+            content="Neon Nights — a one-night music and street food festival."
+        />
+
+        <title>Neon Nights | Music & Food Festival</title>
+
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+
+    <body>
+        <!-- ============================================================
+         HEADER
+    ============================================================ -->
+
+        <header class="site-header">
+            <div class="container header-container">
+                <!-- Logo -->
+                <a href="#home" class="logo" aria-label="Neon Nights home">
+                    NEON<span>NIGHTS</span>
+                </a>
+
+                <!-- Navigation -->
+                <nav class="main-nav" aria-label="Main navigation">
+                    <a href="#home">Home</a>
+                    <a href="#schedule">Schedule</a>
+                </nav>
+
+                <!-- Dark mode toggle -->
+                <button
+                    class="theme-toggle"
+                    id="themeToggle"
+                    type="button"
+                    aria-label="Toggle dark mode"
+                    aria-pressed="false"
+                >
+                    <span class="theme-icon" aria-hidden="true">🌙</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- ============================================================
+         HERO
+    ============================================================ -->
+
+        <main>
+            <section class="hero" id="home">
+                <!-- Background overlay for text readability -->
+                <div class="hero-overlay"></div>
+
+                <div class="container hero-content">
+                    <p class="hero-eyebrow">ONE NIGHT ONLY</p>
+
+                    <h1>NEON NIGHTS</h1>
+
+                    <!-- Client-requested intro line -->
+                    <p class="hero-description">
+                        Doors open this Friday at 7 PM — don't be late!
+                    </p>
+
+                    <!-- Countdown -->
+                    <div id="countdown" class="countdown" aria-live="polite">
+                        <div class="countdown-item">
+                            <span id="days">00</span>
+                            <small>Days</small>
+                        </div>
+
+                        <div class="countdown-item">
+                            <span id="hours">00</span>
+                            <small>Hours</small>
+                        </div>
+
+                        <div class="countdown-item">
+                            <span id="minutes">00</span>
+                            <small>Minutes</small>
+                        </div>
+
+                        <div class="countdown-item">
+                            <span id="seconds">00</span>
+                            <small>Seconds</small>
+                        </div>
+                    </div>
+
+                    <p
+                        id="countdownMessage"
+                        class="countdown-message"
+                        aria-live="polite"
+                    ></p>
+
+                    <!-- Main CTA -->
+                    <a href="#signup" class="btn btn-primary">
+                        GET TICKETS
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- ========================================================
+             FEATURES
+        ========================================================= -->
+
+            <section class="features">
+                <div class="container features-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">🎧</div>
+
+                        <h2>Live DJs</h2>
+
+                        <p>
+                            High-energy sets, live performances and music all
+                            night.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon">🍜</div>
+
+                        <h2>Street Food</h2>
+
+                        <p>
+                            Discover bold flavours from some of the city's best
+                            vendors.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon">🎆</div>
+
+                        <h2>Night Show</h2>
+
+                        <p>
+                            Lights, visuals and a late-night show built for the
+                            festival.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- ========================================================
+             SCHEDULE
+        ========================================================= -->
+
+            <section class="schedule" id="schedule">
+                <div class="container">
+                    <div class="section-heading">
+                        <p class="section-label">THE NIGHT</p>
+
+                        <h2>SCHEDULE</h2>
+                    </div>
+
+                    <div class="schedule-table-wrapper">
+                        <table class="schedule-table">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>What's On</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>6:30 PM</td>
+                                    <td>Doors Open</td>
+                                </tr>
+
+                                <tr>
+                                    <td>8:00 PM</td>
+                                    <td>First Act</td>
+                                </tr>
+
+                                <tr>
+                                    <td>10:00 PM</td>
+                                    <td>Headliner</td>
+                                </tr>
+
+                                <tr>
+                                    <td>12:00 AM</td>
+                                    <td>Close</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================================
+             SIGNUP
+        ========================================================= -->
+
+            <section class="signup" id="signup">
+                <div class="container signup-container">
+                    <div class="signup-content">
+                        <p class="section-label">STAY UPDATED</p>
+
+                        <h2>Get notified</h2>
+
+                        <p>
+                            Leave your email and we'll let you know about
+                            festival updates.
+                        </p>
+                    </div>
+
+                    <form id="signupForm" class="signup-form">
+                        <label class="sr-only" for="email">
+                            Email address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email address"
+                            autocomplete="email"
+                            required
+                        />
+
+                        <button type="submit" class="btn btn-primary">
+                            Notify Me
+                        </button>
+                    </form>
+
+                    <p
+                        id="formMessage"
+                        class="form-message"
+                        aria-live="polite"
+                    ></p>
+                </div>
+            </section>
+        </main>
+
+        <!-- ============================================================
+         FOOTER
+    ============================================================ -->
+
+        <footer class="site-footer">
+            <div class="container footer-container">
+                <a href="#home" class="logo footer-logo">
+                    NEON<span>NIGHTS</span>
+                </a>
+
+                <div class="social-links">
+                    <!-- Placeholder links because client did not provide URLs -->
+
+                    <a href="#home" aria-label="Instagram"> Instagram </a>
+
+                    <a href="#home" aria-label="Facebook"> Facebook </a>
+
+                    <a href="#home" aria-label="TikTok"> TikTok </a>
+                </div>
+
+                <p>© 2026 Neon Nights. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>
